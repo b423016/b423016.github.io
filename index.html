@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ayush Kumar Jha - Portfolio</title>
+  <style>
+    /* Base Reset & Typography */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+      transition: background-color 0.3s, color 0.3s;
+      scroll-behavior: smooth;
+      line-height: 1.7;
+    }
+    /* Modified styles for futuristic look and better contrast */
+body.light {
+  background-color: #f8f9fa;
+  color: #2d3436;
+}
+
+body.dark {
+  background-color: #0a0a0a;
+  color: #e9ecef;
+}
+
+/* Futuristic Gradient Background */
+body.light::before {
+  background: linear-gradient(135deg, #7f00ff, #00ffff, #7f00ff);
+}
+
+body.dark::before {
+  background: linear-gradient(135deg, #2a044a, #0b2e59, #2a044a);
+}
+
+/* Container Styling */
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark .container {
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Text Contrast Enhancements */
+body.dark h1,
+body.dark h2,
+body.dark h3 {
+  color: #f8f9fa;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark section {
+  background: rgba(30, 30, 30, 0.9);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+/* Neon Accents */
+body.dark .subsection {
+  border-left: 4px solid #7f00ff;
+  background: rgba(127, 0, 255, 0.05);
+}
+
+body.dark .social-buttons a {
+  box-shadow: 0 4px 10px rgba(127, 0, 255, 0.3);
+}
+
+/* Particle Adjustment */
+body.dark .particles {
+  opacity: 0.2;
+}
+
+/* Improved Input Contrast */
+body.dark .search-container input[type="text"] {
+  background: rgba(40, 40, 40, 0.9);
+  border-color: #7f00ff;
+  color: #e9ecef;
+}
+
+/* Theme Toggle Enhancements */
+.theme-toggle {
+  background: #7f00ff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 5px rgba(127, 0, 255, 0.5);
+}
+
+/* Section Header Glow Effect */
+section h2 {
+  position: relative;
+}
+
+section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #7f00ff, transparent);
+  opacity: 0.5;
+}
+    
+    /* Flashy Gradient Background with Particle Effect */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1e3c72, #2a5298, #1e3c72);
+      background-size: 400% 400%;
+      opacity: 0.8;
+      z-index: -3;
+      animation: gradientFlash 12s ease infinite;
+    }
+    @keyframes gradientFlash {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Particle animation */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image: url('https://www.transparenttextures.com/patterns/particles.png');
+      opacity: 0.3;
+      z-index: -2;
+    }
+    
+    /* Container Styling */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    header {
+      text-align: center;
+      padding: 2rem 0;
+      animation: headerAnimation 2s ease-out;
+    }    
+    @keyframes headerAnimation {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Social Buttons */
+    .social-buttons {
+      margin-top: 1rem;
+    }
+    .social-buttons a {
+      text-decoration: none;
+      margin: 0 0.5rem;
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      color: #fff;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-block;
+      font-size: 1em;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .social-buttons a.github {
+      background-color: #24292e;
+    }
+    .social-buttons a.linkedin {
+      background-color: #0077b5;
+    }
+    .social-buttons a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+    
+    /* Search Bar Styling with Suggestions */
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .search-container input[type="text"] {
+      width: 60%;
+      padding: 14px 20px;
+      border: 2px solid #ccc;
+      border-radius: 24px;
+      font-size: 1.1em;
+      outline: none;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    .search-container input[type="text"]:focus {
+      border-color: #4285f4;
+      box-shadow: 0 0 10px rgba(66,133,244,0.4);
+    }
+    
+    /* Datalist styling for suggestions */
+    datalist {
+      font-size: 1em;
+    }
+    
+    /* Theme Toggle Button */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      background-color: #4285f4;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      transition: background-color 0.3s, transform 0.3s;
+      z-index: 10;
+    }
+    .theme-toggle:hover {
+      background-color: #357ae8;
+      transform: scale(1.05);
+    }
+    
+    /* Sections Styling */
+    section {
+      margin: 3rem 0;
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      animation: sectionFade 1s ease-out;
+    }
+    @keyframes sectionFade {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid currentColor;
+      padding-bottom: 0.5rem;
+    }
+    .content {
+      margin-top: 1rem;
+    }
+    
+    /* Subsection: Suggestions */
+    .subsection {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(66, 133, 244, 0.1);
+      border-left: 4px solid #4285f4;
+      border-radius: 4px;
+      animation: slideIn 1s ease-out;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    /* Easter Egg Surprise */
+    #surprise {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff4081;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+      cursor: pointer;
+      z-index: 10;
+    }
+    #surprise:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 600px) {
+      .search-container input[type="text"] {
+        width: 90%;
+      }
+      .container {
+        margin: 1rem;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="light">
+  <!-- Theme toggle button -->
+  <button class="theme-toggle" onclick="toggleTheme()">Dark Theme</button>
+  
+  <!-- Particle background -->
+  <div class="particles"></div>
+  
+  <div class="container">
+    <header>
+      <h1>Ayush Kumar Jha</h1>
+      <div class="social-buttons">
+        <a href="https://github.com/b423016" class="github" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ayush-jha-196470287/" class="linkedin" target="_blank">LinkedIn</a>
+      </div>
+      <p style="margin-top: 1rem;">Mobile: +91 9155388390 | Email: ayushjha4277@gmail.com</p>
+    </header>
+    
+    <!-- Search Bar with Datallist for Suggestions -->
+    <div class="search-container">
+      <input type="text" list="suggestions" id="searchInput" placeholder="Search my portfolio..." onkeydown="if(event.key==='Enter') handleSearch()"/>
+      <datalist id="suggestions">
+        <option value="Summary"></option>
+        <option value="Education"></option>
+        <option value="Technical Skills"></option>
+        <option value="Experience"></option>
+        <option value="Key Projects"></option>
+        <option value="Achievements"></option>
+      </datalist>
+    </div>
+    
+    <!-- Summary Section -->
+    <section id="summary">
+      <h2>Summary</h2>
+      <div class="content">
+        <p><strong>SDE Resume:</strong> Highly motivated Software Developer with strong foundations in Data Structures, Algorithms, and system design. Experienced in building scalable applications and RESTful APIs. Demonstrated ability to integrate machine learning features into production environments.</p>
+        <p><strong>Data Science Resume:</strong> Data Scientist / ML Engineer with robust experience in building predictive models and deploying end-to-end AI solutions. Proficient in Python-based ML frameworks, large-scale data processing, and model optimization for real-world applications.</p>
+        <div class="subsection">
+          <h3>Suggestions</h3>
+          <p>Combine your software engineering prowess with cutting-edge data science techniques to drive innovation and solve complex challenges.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="content">
+        <p>Bachelor of Technology in Information Technology (GPA: 8.55)</p>
+        <p>International Institute of Information Technology Bhubaneswar, Odisha</p>
+        <p>Aug. 2023 – July 2027</p>
+      </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="content">
+        <h3>Data Science / ML Resume</h3>
+        <ul>
+          <li>Languages &amp; Tools: Python, TensorFlow, PyTorch, NumPy, Pandas, SQL</li>
+          <li>ML Techniques: Deep Learning, NLP (LLM), Time-series, Ensemble Methods</li>
+          <li>Cloud &amp; DevOps: AWS, Docker, Git, FastAPI, Redis</li>
+          <li>Data Visualization: Matplotlib, Seaborn, Plotly</li>
+        </ul>
+        <h3>SDE Resume</h3>
+        <ul>
+          <li>Languages: Java, Python, C, SQL</li>
+          <li>Frameworks &amp; Tools: Spring Boot, FastAPI, Docker, Git, StreamLit, OpenAPI, LLMs, OpenCV</li>
+          <li>Cloud &amp; Databases: AWS (EC2, S3), SQL, PostgreSQL</li>
+          <li>Core Competencies: Microservices, Operating System, OOP</li>
+        </ul>
+        <div class="subsection">
+          <h3>Suggestions</h3>
+          <p>Blend robust software engineering with deep data insights to architect solutions for the future.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="content">
+        <p><strong>Freelancer (AI Backend Developer) – Remote</strong> (Sep 2024 – Nov 2024)</p>
+        <ul>
+          <li>Designed and deployed RESTful APIs using FastAPI and Python; leveraged async/await to enhance throughput.</li>
+          <li>Implemented OpenAI’s GPT 4.0 for content generation with secure rate limiting for 300+ requests/hour.</li>
+          <li>Developed a legal document processing system utilizing OCR and PDF parsing with 85% accuracy.</li>
+        </ul>
+        <div class="subsection">
+          <h3>Suggestions</h3>
+          <p>Improve reliability with real-time API monitoring and CI/CD pipelines.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Key Projects</h2>
+      <div class="content">
+        <h3>AI Thumbnail Generator</h3>
+        <ul>
+          <li>Trained a custom CNN for scene detection (80% accuracy) using Python, FastAPI, and OpenCV.</li>
+          <li>Deployed via Docker and integrated Redis caching to reduce redundant computations.</li>
+        </ul>
+        <h3>FinanzMeister</h3>
+        <ul>
+          <li>Utilized TensorFlow with Random Forest, XGBoost, and LSTM for financial metric prediction (80% accuracy).</li>
+          <li>Integrated GPT-based prompts for automating user queries and implemented anomaly detection to reduce false positives by 35%.</li>
+        </ul>
+        <h3>Flight Route Optimization System</h3>
+        <ul>
+          <li>Developed in Java &amp; Spring Boot using an A* algorithm achieving 25% faster routing than baseline methods.</li>
+          <li>Leveraged Java Streams for enhanced parallel computation.</li>
+        </ul>
+        <div class="subsection">
+          <h3>Suggestions</h3>
+          <p>Consider open-sourcing your projects to further boost your reputation as a developer.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Achievements Section -->
+    <section id="achievements">
+      <h2>Achievements</h2>
+      <div class="content">
+        <ul>
+          <li>Competitive Programming on Codeforces, consistently within the top 10%.</li>
+          <li>D3 Hackathon: Top 10 finalist among 300+ teams.</li>
+          <li>Mathematics Olympiad (IOQM): Qualified.</li>
+        </ul>
+        <div class="subsection">
+          <h3>Suggestions</h3>
+          <p>Leverage your accolades in interviews and professional profiles to showcase your expertise.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Easter Egg Surprise Element -->
+  <div id="surprise" onclick="hideSurprise()">Surprise! 🎉 Click me to hide.</div>
+  
+  <script>
+    // Toggle theme (light/dark)
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.querySelector('.theme-toggle');
+      if(body.classList.contains('light')) {
+        body.classList.remove('light');
+        body.classList.add('dark');
+        btn.textContent = 'Light Theme';
+      } else {
+        body.classList.remove('dark');
+        body.classList.add('light');
+        btn.textContent = 'Dark Theme';
+      }
+    }
+    
+    // Search functionality: scroll to first matching section
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      if(query === "") return;
+      
+      if(query === "surprise") {
+        document.getElementById('surprise').style.display = "block";
+        return;
+      }
+      
+      const sections = document.querySelectorAll("section");
+      let found = false;
+      sections.forEach(section => {
+        if(section.textContent.toLowerCase().includes(query) && !found) {
+          section.scrollIntoView({ behavior: 'smooth' });
+          section.style.backgroundColor = "rgba(66, 133, 244, 0.1)";
+          setTimeout(() => { section.style.backgroundColor = ""; }, 2500);
+          found = true;
+        }
+      });
+      if(!found){alert("No matching content found.");}
+    }
+    
+    // Hide Easter Egg element when clicked
+    function hideSurprise() {
+      document.getElementById('surprise').style.display = "none";
+    }
+  </script>
+</body>
+</html>
